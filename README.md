@@ -16,10 +16,10 @@ Search for TopDownRTSTemplate and put a check mark at it.
 
 ## Import Keyboard Settings
 
-__You can download DefaultInput.ini and InputBackupTopDownRTSCamLib.ini from here from github by clicking on top left Code->Download Zip__
+__You can download DefaultInput.ini and InputBackupTopDownTemplate.ini from here from github by clicking on top left Code->Download Zip__
 
 Open Unreal Editor. Go to Edit -> Project Settings -> Input (on left navigation) -> Import.
-Choose InputBackupTopDownRTSCamLib.ini from:
+Choose InputBackupTopDownTemplate.ini from:
 C:\Program Files\Epic Games\UE_5.0\Engine\Plugins\TopDownRTSCamLib\TopDownRTSTemplate\Document\Inputs
 
 __or download from github__
@@ -43,12 +43,12 @@ All\Engine\Plugins\TopDownRTSTemplate\Content\Level\
 Your can find example Blueprints in the Unreal Editor as well:
 All\Engine\Plugins\TopDownRTSTemplate\Content\Blueprints
 
-This Blueprints use the Parent Classes from TopDownRTSCamLib Plugin, which you can use for your Blueprints as well.
+This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you can use for your Blueprints as well.
 
 ## Parent Classes
 
-If TopDownRTSCamLib is installed the Classes can be used as Parent Class in Blueprint, so all functions from this Class are available.
-Just use one of the following Classes as Parent Class and or just choose them in your GameMode Blueprint. Category = TopDownRTSCamLib
+If TopDownRTSTemplate is installed the Classes can be used as Parent Class in Blueprint, so all functions from this Class are available.
+Just use one of the following Classes as Parent Class and or just choose them in your GameMode Blueprint. Category = TopDownRTSTemplate
 
 Parentclasses are:
 
@@ -57,7 +57,15 @@ Parentclasses are:
 - EnemyBase
 - HUDBase
 - ControllerBase
+- EnemyControllerBase
 - SelectedCharacterIcon
+- Spellshield
+- UIWeaponIndicator
+- Waypoint
+- WeaponBase + WeaponTable
+- CharacterBaseActionBar
+- CharacterBaseHealthBar
+- EnemyBaseHealthBar
 
 For CameraBase, if you want only to use the Functions and not run the Code in Tick and BeginPlay (which is automatically setup), just set the Variables to true:
 
@@ -308,13 +316,13 @@ void StartMovingActors(TArray<ATopDownExampleCharacter\*> Actors);
 
 - Start Move Actors.
 
-void setZeroActor(ATopDownExampleCharacter\* Actor);
+void setZeroActor(ACharacterBase* Actor);
 
 - Functionality is defined by Functionname
 
 bool bStartSelecting = false;
 
-TArray <ATopDownExampleCharacter\*> FoundActors;
+TArray <ACharacterBase\*> FoundActors;
 ```
 ---
 
@@ -322,78 +330,67 @@ TArray <ATopDownExampleCharacter\*> FoundActors;
 
 ```
 void ShiftPressed();
-
 void ShiftReleased();
-
 void LeftClickPressed();
-
 void LeftClickReleased();
-
 void RightClickPressed();
-
 void SpacePressed();
-
 void SpaceReleased();
-
 void QPressed();
-
 void WPressed();
-
 void APressed();
-
 void AReleased();
-
+void EPressed();
+void SPressed();
+void FPressed();
+void RPressed();
 void JumpCamera();
-
 void StrgPressed();
-
 void StrgReleased();
-
 void ZoomIn();
-
 void ZoomOut();
-
 void ZoomStop();
-
 void CamLeft();
-
 void CamRight();
-
-void ControllDirectionToMouse(ATopDownExampleCharacter\* SelectedActor);
-
+void ControllDirectionToMouse(ACharacterBase* SelectedActor);
 void ToggleLockCameraToCharacter();
-
 void TabPressed();
-
 void TabReleased();
-
 void CameraPawnForward();
-
 void CameraPawnBackward();
-
 void CameraPawnLeft();
-
 void CameraPawnRight();
-
 void CameraPawnForwardR();
-
 void CameraPawnBackwardR();
-
 void CameraPawnLeftR();
-
 void CameraPawnRightR();
-
 bool IsShiftPressed = false;
-
 bool AIsPressed = false;
-
 bool IsStrgPressed = false;
-
 bool IsSpacePressed = false;
-
 bool LockCameraToCharacter = false;
+TArray <ACharacterBase*> SelectedActors;
+TArray <ACharacterBase*> MovingActors;
+```
 
-TArray <ATopDownExampleCharacter*> SelectedActors;
+### Class - EnemyControllerBase
 
-TArray <ATopDownExampleCharacter*> MovingActors;
+```
+	AEnemyControllerBase();
+	virtual void BeginPlay() override;
+	virtual void OnPossess(APawn* Pawn) override;
+	virtual void Tick(float DeltaSeconds) override;
+	virtual FRotator GetControlRotation() const override;
+	void isAttacked(AActor* Actor, FKey ButtonPressed);
+	void OnPawnDetected(const TArray<AActor*>& DetectedPawns);
+	float AISightRadius = 1500.0f; // 500.0f
+	float AISightAge = 5.0f;
+	float AILoseSightRadius = AISightRadius + 50.0f;
+float AIFieldOfView = 90.0f; // 90.0f
+class UAISenseConfig_Sight* SightConfig;
+	float bIsPlayerDetected = false;
+	float DistanceToPlayer = 0.0f;
+	float DistanceToWaypoint = 0.0f;
+	float SprintTime = 0.0f;
+	ACharacterBase* ActorToChase;
 ```
