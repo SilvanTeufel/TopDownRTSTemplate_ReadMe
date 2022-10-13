@@ -43,12 +43,12 @@ All\Engine\Plugins\TopDownRTSTemplate\Content\Level\
 Your can find example Blueprints in the Unreal Editor as well:
 All\Engine\Plugins\TopDownRTSTemplate\Content\Blueprints
 
-This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you can use for your Blueprints as well.
+This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you can use for your Blueprints.
 
 ## Parent Classes
 
 If TopDownRTSTemplate is installed the Classes can be used as Parent Class in Blueprint, so all functions from this Class are available.
-Just use one of the following Classes as Parent Class and or just choose them in your GameMode Blueprint. Category = TopDownRTSTemplate
+Just use one of the following Classes as Parent Class and or just choose them in your GameMode Blueprint. Category = TopDownRTSTemplate. 
 
 Parentclasses are:
 
@@ -79,6 +79,82 @@ You also have to set Lock Viewport on Mouse as "always".
 
 Here is a List of the Classes and there Functions:
 
+### Class - CharacterBase
+
+```
+	ACharacterBase(const FObjectInitializer& ObjectInitializer);
+	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	FVector MoveEndLocation;
+	float Speed = 600.0f;
+	float CalcAngle(FVector VectorOne, FVector VectorTwo);
+	float CheckAngle(FVector VectorOne, float AngleOneX);
+	TEnumAsByte<CharacterStatus> CharAnimState;
+	void setAnimState(TEnumAsByte<CharacterStatus> NewCharAnimState);
+	TEnumAsByte<CharacterStatus> getAnimState();
+	FVector ActualLocation;
+	void onBeginOverlap(class UPrimitiveComponent* HitComp,
+	class AActor* OtherActor, class UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	FVector ClimbingStartLocation;
+	class UWidgetComponent* HealthWidgetComp;
+	float GetHealth();
+	float GetMaxHealth();
+	void SetHealth(float NewHealth);
+	bool Die();
+	float DeathTime;
+	void SpawnHealthWidget();
+	float Health;
+	float MaxHealth = 120;
+	float GetDistance();
+	float GetMaxDistance();
+	void SetDistance(float NewDistance);
+	float MaxDistance = 100;
+	float AvailableDistance;
+	void SetSelected();
+	void SetDeselected();
+	TArray <FVector> MoveArray;
+	int32 MoveArrayIterator;
+	FVector ForwardVector;
+	FVector LastDirection;
+	float JumpHeight = 600.0f;
+	int DoubleJumpCounter = 0;
+	void ToggleSpellShield();
+	void SpawnSpellShield();
+	void RefreshSpellShieldCounterTick(float deltaTime);
+	void SpawnSelectedCharacterIcon();
+	bool Attack(AActor* AttackedCharacter);
+	float FireTime;
+	float FirePauseTime;
+	float ReloadTime;
+	float ReloadPauseTime = 2.f;
+	float IsHitTime;
+	AEnemyBase* TargetedAi;
+	TSubclassOf<class AWeaponBase> WeaponClass;
+	class AWeaponBase* Weapon;
+	void WeaponSpawn();
+	void ChangeWeapon(FString WeaponName);
+	void CreateIconActionRadius();
+	void CreateIconNormalRadius();
+	class USkeletalMesh* GetWeaponMesh();
+	TArray<FString> Weapons;
+	TArray<int> MaxMagSize;
+	TArray<int> MagSize;
+	void ReloadWeapon();
+	int ActualWeaponId = 1;
+	class ASelectedCharacterIcon* SelectedCharacterIcon;
+	class ASpellshield* Spellshield;
+	class UDecalComponent* CursorToWorld;
+	float TeleportStartTime = 0; // Used Timer
+	float TeleportStartEndTime = 1.7f; // When TeleportStartTime reaches TeleportStartEndTime States is changes to StopTeleport
+	float TeleportStopEndTime = 2.1f; // When TeleportStartTime reaches TeleportStopEndTime States is changes to Idle
+	float TeleportCooldownTime = 0;
+	float TeleportCooldownStartTime = 30;
+	float TeleportRadius = 50.f;
+	void CreateTeleportRadius();
+	void TeleportCoolDownTick(float DeltaSeconds);
+```
 
 ### Class - EnemyBase
 
@@ -357,35 +433,5 @@ float DistanceToPlayer = 0.0f;
 float DistanceToWaypoint = 0.0f;
 float SprintTime = 0.0f;
 ACharacterBase* ActorToChase;
-```
-
-### Class - EnemyBase
-
-```
-AEnemyBase(const FObjectInitializer& ObjectInitializer);
-virtual void BeginPlay() override;
-virtual void Tick(float DeltaTime) override;
-virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-void isAttacked(AActor* AttackingCharacter); 
-float AttackTime = 0.0f;
-float AttackPauseTime = 0.0f;
-float GetAttackedTime = 0.0f;
-class AWaypoint* NextWaypoint;
-void setWaypoint(class AWaypoint* NewNextWaypoint);
-void setAnimState(TEnumAsByte<AiStatus> NewCharAnimState);
-TEnumAsByte<AiStatus> getAnimState();
-TEnumAsByte<AiStatus> CharAnimState;
-AActor* ActorToChase;
-void SpawnSelectedCharacterIcon();
-void SetSelected();
-void SetDeselected();
-class ASelectedCharacterIcon* SelectedCharacterIcon;
-float GetHealth();
-void SetHealth(float NewHealth);
-float GetMaxHealth();
-class UWidgetComponent* HealthWidgetComp;
-float Health;
-float MaxHealth = 120;
-float DeathTimer = 0;
 ```
 
