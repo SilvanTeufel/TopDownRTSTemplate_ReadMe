@@ -90,83 +90,83 @@ Here is a List of the Classes and there Functions:
 ### Class - CharacterBase
 
 ```
-	ACharacterBase(const FObjectInitializer& ObjectInitializer);
-	virtual void BeginPlay() override;
-	virtual void Tick(float DeltaTime) override;
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	FVector MoveEndLocation; 						// Used for Movement
-	float Speed = 600.0f;					
-	float CalcAngle(FVector VectorOne, FVector VectorTwo);  		// Calculations Angel between two Vectors
-	float CheckAngle(FVector VectorOne, float AngleOneX);    		// Compares Angel between two Vectors
-	TEnumAsByte<CharacterStatus> CharAnimState;
-	void setAnimState(TEnumAsByte<CharacterStatus> NewCharAnimState);
-	TEnumAsByte<CharacterStatus> getAnimState();
-	FVector ActualLocation;
+ACharacterBase(const FObjectInitializer& ObjectInitializer);
+virtual void BeginPlay() override;
+virtual void Tick(float DeltaTime) override;
+virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+FVector MoveEndLocation; 						// Used for Movement
+float Speed = 600.0f;					
+float CalcAngle(FVector VectorOne, FVector VectorTwo);  		// Calculations Angel between two Vectors
+float CheckAngle(FVector VectorOne, float AngleOneX);    		// Compares Angel between two Vectors
+TEnumAsByte<CharacterStatus> CharAnimState;
+void setAnimState(TEnumAsByte<CharacterStatus> NewCharAnimState);
+TEnumAsByte<CharacterStatus> getAnimState();
+FVector ActualLocation;
 	
-	bool DisableTick = false;
-	bool DisableBeginPlay = false;
+bool DisableTick = false;
+bool DisableBeginPlay = false;
 	
-	void onBeginOverlap(class UPrimitiveComponent* HitComp,
-	class AActor* OtherActor, class UPrimitiveComponent* OtherComp,
-	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	FVector ClimbingStartLocation;
-	class UWidgetComponent* HealthWidgetComp;
-	float GetHealth();
-	float GetMaxHealth();
-	void SetHealth(float NewHealth);
-	bool Die();
-	float DeathTime;      							// Time is used for despawn
-	void SpawnHealthWidget();						// Spawns the Health Widget
-	float Health;								// Current Health of the Character
-	float MaxHealth = 120;							// Max Health of the Character
-	float GetDistance();							
-	float GetMaxDistance();							
-	void SetDistance(float NewDistance);
-	float MaxDistance = 100;
-	float AvailableDistance;
-	void SetSelected();							// Sets the Character selected Icon
-	void SetDeselected();							// Hides the Icon
-	TArray <FVector> MoveArray;						// Array for moving with shift-click	
-	int32 MoveArrayIterator;						// Iterator for moving with shift-click	
-	FVector ForwardVector;
-	FVector LastDirection;
-	float JumpHeight = 600.0f;
-	int DoubleJumpCounter = 0;
-	void ToggleSpellShield();
-	void SpawnSpellShield();
-	void RefreshSpellShieldCounterTick(float deltaTime);
-	void SpawnSelectedCharacterIcon();
-	bool Attack(AActor* AttackedCharacter);
-	float FireTime;
-	float FirePauseTime;
-	float ReloadTime;
-	float ReloadPauseTime = 2.f;
-	float IsHitTime;
-	AEnemyBase* TargetedAi;
-	TSubclassOf<class AWeaponBase> WeaponClass;
-	class AWeaponBase* Weapon;
-	void WeaponSpawn();
-	void ChangeWeapon(FString WeaponName);
-	void CreateIconActionRadius();
-	void CreateIconNormalRadius();
-	class USkeletalMesh* GetWeaponMesh();
-	TArray<FString> Weapons;
-	TArray<int> MaxMagSize;
-	TArray<int> MagSize;
-	void ReloadWeapon();
-	int ActualWeaponId = 1;
-	class ASelectedCharacterIcon* SelectedCharacterIcon;
-	class ASpellshield* Spellshield;
-	class UDecalComponent* CursorToWorld;
-	float TeleportStartTime = 0; // Used Timer
-	float TeleportStartEndTime = 1.7f; // When TeleportStartTime reaches TeleportStartEndTime States is changes to StopTeleport
-	float TeleportStopEndTime = 2.1f; // When TeleportStartTime reaches TeleportStopEndTime States is changes to Idle
-	float TeleportCooldownTime = 0;
-	float TeleportCooldownStartTime = 30;
-	float TeleportRadius = 50.f;
-	float TeleportOutOfRadiusDmg = 10.f;
-	void CreateTeleportRadius();
-	void TeleportCoolDownTick(float DeltaSeconds);
+void onBeginOverlap(class UPrimitiveComponent* HitComp,
+class AActor* OtherActor, class UPrimitiveComponent* OtherComp,
+int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+FVector ClimbingStartLocation;
+class UWidgetComponent* HealthWidgetComp;
+float GetHealth();
+float GetMaxHealth();
+void SetHealth(float NewHealth);
+bool Die();
+float DeathTime;      							// Time is used for despawn
+void SpawnHealthWidget();						// Spawns the Health Widget
+float Health;								// Current Health of the Character
+float MaxHealth = 120;							// Max Health of the Character
+float GetDistance();							
+float GetMaxDistance();							
+void SetDistance(float NewDistance);
+float MaxDistance = 100;
+float AvailableDistance;
+void SetSelected();							// Sets the Character selected Icon
+void SetDeselected();							// Hides the Icon
+TArray <FVector> MoveArray;						// Array for moving with shift-click	
+int32 MoveArrayIterator;						// Iterator for moving with shift-click	
+FVector ForwardVector;
+FVector LastDirection;
+float JumpHeight = 600.0f;
+int DoubleJumpCounter = 0;
+void ToggleSpellShield();
+void SpawnSpellShield();
+void RefreshSpellShieldCounterTick(float deltaTime);
+void SpawnSelectedCharacterIcon();
+bool Attack(AActor* AttackedCharacter);
+float FireTime;
+float FirePauseTime;
+float ReloadTime;
+float ReloadPauseTime = 2.f;
+float IsHitTime;
+AEnemyBase* TargetedAi;
+TSubclassOf<class AWeaponBase> WeaponClass;
+class AWeaponBase* Weapon;
+void WeaponSpawn();
+void ChangeWeapon(FString WeaponName);
+void CreateIconActionRadius();
+void CreateIconNormalRadius();
+class USkeletalMesh* GetWeaponMesh();
+TArray<FString> Weapons;
+TArray<int> MaxMagSize;
+TArray<int> MagSize;
+void ReloadWeapon();
+int ActualWeaponId = 1;
+class ASelectedCharacterIcon* SelectedCharacterIcon;
+class ASpellshield* Spellshield;
+class UDecalComponent* CursorToWorld;
+float TeleportStartTime = 0; // Used Timer
+float TeleportStartEndTime = 1.7f; // When TeleportStartTime reaches TeleportStartEndTime States is changes to StopTeleport
+float TeleportStopEndTime = 2.1f; // When TeleportStartTime reaches TeleportStopEndTime States is changes to Idle
+float TeleportCooldownTime = 0;
+float TeleportCooldownStartTime = 30;
+float TeleportRadius = 50.f;
+float TeleportOutOfRadiusDmg = 10.f;
+void CreateTeleportRadius();
+void TeleportCoolDownTick(float DeltaSeconds);
 ```
 
 ### Class - EnemyBase
