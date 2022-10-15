@@ -16,15 +16,16 @@ Search for TopDownRTSTemplate and put a check mark at it.
 
 ## Import Keyboard Settings
 
-__You can download DefaultInput.ini and InputBackupTopDownTemplate.ini from here from github by clicking on top left Code->Download Zip__
+__You can download DefaultInput.ini and GameplayDebuggerTopDownRTSTemplate.ini from here from github by clicking on top left Code->Download Zip__
 
-Open Unreal Editor. Go to Edit -> Project Settings -> Input (on left navigation) -> Import.
-Choose InputBackupTopDownTemplate.ini from:
+Open Unreal Editor. Go to Edit -> Project Settings -> AISystem (on left navigation) -> Import.
+Choose GameplayDebuggerTopDownRTSTemplate.ini from:
 C:\Program Files\Epic Games\UE_5.0\Engine\Plugins\TopDownRTSCamLib\TopDownRTSTemplate\Document\Inputs
 
 __or download from github__
 
-Repeat this step with DefaultInput.ini .
+Repeat this step with EngineInputTopDownRTSTemplate.ini .
+Open Unreal Editor. Go to Edit -> Project Settings -> Input (on left navigation) -> Import.
 
 If the keybindings are not working you can check the pictures in:
 C:\Program Files\Epic Games\UE_5.0\Engine\Plugins\TopDownRTSTemplate\Document\Inputs
