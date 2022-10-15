@@ -80,8 +80,7 @@ For CameraBase, if you want only to use the Functions and not run the Code in Ti
 - DisableTick
 - DisableBeginPlay
 
-For ControllerBase, if you want to use the Controller, you have to adapt your Settings (Pictures in "Document/Inputs" Folder), or import the DefaultInput.ini and InputBackupTopDownRTSCamLib.ini inside the "Inputs" Folder.
-You also have to set Lock Viewport on Mouse as "always".
+For ControllerBase, if you want to use the Controller, you have to adapt your Settings (Pictures in "Document/Inputs" Folder), or "Import Keyboard Settings" (topic above). You also need GameplayDebuggerTopDownRTSTemplate.ini for the AIController.
 
 ---
 
