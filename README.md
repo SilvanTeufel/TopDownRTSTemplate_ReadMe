@@ -3,6 +3,7 @@
 Copyright 2022 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 
 !!!!You can Disable BeginPlay and Tick of my ParentClasses with setting!!!!
+
 bool DisableTick = true;
 bool DisableBegin = true;
 
