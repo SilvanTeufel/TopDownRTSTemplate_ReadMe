@@ -2,6 +2,12 @@
 
 Copyright 2022 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 
+!!!!You can Disable BeginPlay and Tick of my ParentClasses with setting!!!!
+bool DisableTick = true;
+bool DisableBegin = true;
+
+In Blueprint Constructor-Skript. So you are able to only use my Functions and Propertys.
+
 ## Download the Plugin
 
 If you have downloaded the plugin it can be found in your Unreal Engine folder:
