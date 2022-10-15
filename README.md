@@ -95,6 +95,10 @@ Here is a List of the Classes and there Functions:
 	void setAnimState(TEnumAsByte<CharacterStatus> NewCharAnimState);
 	TEnumAsByte<CharacterStatus> getAnimState();
 	FVector ActualLocation;
+	
+	bool DisableTick = false;
+	bool DisableBeginPlay = false;
+	
 	void onBeginOverlap(class UPrimitiveComponent* HitComp,
 	class AActor* OtherActor, class UPrimitiveComponent* OtherComp,
 	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -153,6 +157,7 @@ Here is a List of the Classes and there Functions:
 	float TeleportCooldownTime = 0;
 	float TeleportCooldownStartTime = 30;
 	float TeleportRadius = 50.f;
+	float TeleportOutOfRadiusDmg = 10.f;
 	void CreateTeleportRadius();
 	void TeleportCoolDownTick(float DeltaSeconds);
 ```
@@ -164,7 +169,15 @@ AEnemyBase(const FObjectInitializer& ObjectInitializer);
 virtual void BeginPlay() override;
 virtual void Tick(float DeltaTime) override;
 virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+bool DisableTick = false;
+bool DisableBeginPlay = false;
+	
 void isAttacked(AActor* AttackingCharacter); 
+void setWalkSpeed(float Speed);
+float EnemyNormalWalkspeed = 400.f; 
+float EnemySlowWalkspeed = 200.f; 
+
 float AttackTime = 0.0f;
 float AttackPauseTime = 0.0f;
 float GetAttackedTime = 0.0f;
@@ -364,12 +377,25 @@ void setZeroActor(ACharacterBase* Actor);
 
 bool bStartSelecting = false;
 TArray <ACharacterBase\*> FoundActors;
+
+bool bStartSelectingEnemys = false;
+
+TArray <ACharacterBase*> FoundCharacters;
+
+TArray <AEnemyBase*> FoundEnemys;
+
+bool DisableTick = false;
 ```
 ---
 
 ### Class - ControllerBase
 
 ```
+	
+bool DisableTick = false;
+bool DisableBeginPlay = false;
+	
+	
 void ShiftPressed();
 void ShiftReleased();
 void LeftClickPressed();
@@ -422,12 +448,23 @@ virtual void BeginPlay() override;
 virtual void OnPossess(APawn* Pawn) override;
 virtual void Tick(float DeltaSeconds) override;
 virtual FRotator GetControlRotation() const override;
+
+bool DisableTick = false;
+bool DisableBeginPlay = false;
+	
 void isAttacked(AActor* Actor, FKey ButtonPressed);
 void OnPawnDetected(const TArray<AActor*>& DetectedPawns);
-float AISightRadius = 1500.0f; // 500.0f
-float AISightAge = 5.0f;
-float AILoseSightRadius = AISightRadius + 50.0f;
-float AIFieldOfView = 90.0f; // 90.0f
+
+float EnemySightRadius = 1500.0f;
+float EnemySightAge = 5.0f;
+float EnemyLoseSightRadius = EnemySightRadius + 1000.0f;
+float EnemyFieldOfView = 90.0f; 
+float EnemyDespawnTime = 10.0f;
+float EnemyAttackPauseTime = 1.5f;
+float EnemyAttackDuration = 0.6f;
+float EnemyIsAttackedTime = 0.6f;
+float EnemyRecivesDmg = 20.f; 
+
 class UAISenseConfig_Sight* SightConfig;
 float bIsPlayerDetected = false;
 float DistanceToPlayer = 0.0f;
