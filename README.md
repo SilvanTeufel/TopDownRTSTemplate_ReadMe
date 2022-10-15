@@ -94,10 +94,10 @@ Here is a List of the Classes and there Functions:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	FVector MoveEndLocation;
-	float Speed = 600.0f;
-	float CalcAngle(FVector VectorOne, FVector VectorTwo);
-	float CheckAngle(FVector VectorOne, float AngleOneX);
+	FVector MoveEndLocation; 						// Used for Movement
+	float Speed = 600.0f;					
+	float CalcAngle(FVector VectorOne, FVector VectorTwo);  		// Calculations Angel between two Vectors
+	float CheckAngle(FVector VectorOne, float AngleOneX);    		// Compares Angel between two Vectors
 	TEnumAsByte<CharacterStatus> CharAnimState;
 	void setAnimState(TEnumAsByte<CharacterStatus> NewCharAnimState);
 	TEnumAsByte<CharacterStatus> getAnimState();
@@ -115,19 +115,19 @@ Here is a List of the Classes and there Functions:
 	float GetMaxHealth();
 	void SetHealth(float NewHealth);
 	bool Die();
-	float DeathTime;
-	void SpawnHealthWidget();
-	float Health;
-	float MaxHealth = 120;
-	float GetDistance();
-	float GetMaxDistance();
+	float DeathTime;      							// Time is used for despawn
+	void SpawnHealthWidget();						// Spawns the Health Widget
+	float Health;								// Current Health of the Character
+	float MaxHealth = 120;							// Max Health of the Character
+	float GetDistance();							
+	float GetMaxDistance();							
 	void SetDistance(float NewDistance);
 	float MaxDistance = 100;
 	float AvailableDistance;
-	void SetSelected();
-	void SetDeselected();
-	TArray <FVector> MoveArray;
-	int32 MoveArrayIterator;
+	void SetSelected();							// Sets the Character selected Icon
+	void SetDeselected();							// Hides the Icon
+	TArray <FVector> MoveArray;						// Array for moving with shift-click	
+	int32 MoveArrayIterator;						// Iterator for moving with shift-click	
 	FVector ForwardVector;
 	FVector LastDirection;
 	float JumpHeight = 600.0f;
