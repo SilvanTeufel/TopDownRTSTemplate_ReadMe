@@ -480,3 +480,15 @@ float SprintTime = 0.0f;
 ACharacterBase* ActorToChase;
 ```
 
+### Class - EnemyControllerBase
+
+```
+
+AUIWeaponIndicator();
+USkeletalMeshComponent* WeaponMesh;
+virtual void BeginPlay() override;
+virtual void Tick(float DeltaTime) override;
+void ChangeWeaponIndicator(class USkeletalMesh* NewWeaponMesh);
+FVector WeaponIndicatorPosition = FVector(-500.f, 400.0f, -290.0f); 		// Choose Position of the Weapon Indicator
+FRotator WeaponIndicatorRotation = FRotator(-45.f, 0.0f, 0.f); 			// Choose Rotation of the Weapon Indicator
+```
