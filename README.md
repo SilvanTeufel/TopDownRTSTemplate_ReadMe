@@ -10,7 +10,7 @@ bool DisableBegin = true;
 
 In Blueprint Constructor-Skript. So you are able to only use my Functions and Propertys.
 
-!!! Before Start better fill the Weapontable under Games\UE_5.0\Engine\Plugins\TopDownRTSTemplate\Content\Blueprints\Actors\DT_WeaponData !!!
+!!! Before Start better fill the Weapontable under Games\UE_5.0\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Blueprints\Actors\DT_WeaponData !!!
 
 
 ## Download the Plugin
@@ -45,18 +45,35 @@ and create the keybindings by yourself
 ## Test Example Map
 
 Open Unreal Editor. Open folder (In Unreal Editor folder tab):
-All\Engine\Plugins\TopDownRTSTemplate\Content\Level\
+All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Level\
 
 Open Unreal Editor. Open folder (In Unreal Editor folder tab):
-All\Engine\Plugins\TopDownRTSTemplate\Content\Level\
+All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Level\
 
 ## Example Blueprints
 
 Your can find example Blueprints in the Unreal Editor as well:
-All\Engine\Plugins\TopDownRTSTemplate\Content\Blueprints
+All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Blueprints
 
 This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you can use for your Blueprints.
 
+## Animation Times
+
+You can change Times in Animation via Blueprint in Constructor-Skript for example
+
+CharacterBase:
+float TeleportStartEndTime = 1.7f; 	// When TeleportStartTime reaches TeleportStartEndTime States is changes to StopTeleport
+float TeleportStopEndTime = 2.1f; 	// When TeleportStartTime reaches TeleportStopEndTime States is changes to Idle
+float ReloadPauseTime = 2.f; 		// After Reload is done CharAnimState goes back to Idle
+float HitStunnedTime = 0.1f; 		// For this Time CharAnimState will stay in isHit
+float FirePauseTime 			// This Time is from Weapontable and can be different for every Weapon. CharAnimState is Fire till this Time is reached
+
+EnemyControllerBase:
+float EnemyAttackDuration = 0.6f;
+float EnemyIsAttackedTime = 0.6f;
+float EnemyAttackPauseTime = 1.5f;
+
+	
 ## Parent Classes
 
 If TopDownRTSTemplate is installed the Classes can be used as Parent Class in Blueprint, so all functions from this Class are available.
