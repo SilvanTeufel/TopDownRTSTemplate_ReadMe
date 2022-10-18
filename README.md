@@ -62,11 +62,20 @@ This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you
 You can change Times in Animation via Blueprint in Constructor-Skript for example
 
 CharacterBase:
-float TeleportStartEndTime = 1.7f; 	// When TeleportStartTime reaches TeleportStartEndTime States is changes to StopTeleport
-float TeleportStopEndTime = 2.1f; 	// When TeleportStartTime reaches TeleportStopEndTime States is changes to Idle
-float ReloadPauseTime = 2.f; 		// After Reload is done CharAnimState goes back to Idle
-float HitStunnedTime = 0.1f; 		// For this Time CharAnimState will stay in isHit
-float FirePauseTime 			// This Time is from Weapontable and can be different for every Weapon. CharAnimState is Fire till this Time is reached
+float TeleportStartEndTime = 1.7f;
+// When TeleportStartTime reaches TeleportStartEndTime States is changes to StopTeleport
+
+float TeleportStopEndTime = 2.1f; 
+// When TeleportStartTime reaches TeleportStopEndTime States is changes to Idle
+
+float ReloadPauseTime = 2.f;
+// After Reload is done CharAnimState goes back to Idle
+
+float HitStunnedTime = 0.1f;
+// For this Time CharAnimState will stay in isHit
+
+float FirePauseTime;
+// This Time is from Weapontable and can be different for every Weapon. CharAnimState is Fire till this Time is reached
 
 EnemyControllerBase:
 float EnemyAttackDuration = 0.6f;
