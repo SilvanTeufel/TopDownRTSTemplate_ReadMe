@@ -60,7 +60,7 @@ This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you
 ## Animation Times
 
 ```
-You can change Times in Animation via Blueprint in Constructor-Skript for example
+You can change the Time the Character stays in Animation-State via Blueprint in Constructor-Skript for example
 
 CharacterBase:
 float TeleportStartEndTime = 1.7f;
