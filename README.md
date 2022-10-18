@@ -59,6 +59,7 @@ This Blueprints use the Parent Classes from TopDownRTSTemplate Plugin, which you
 
 ## Animation Times
 
+```
 You can change Times in Animation via Blueprint in Constructor-Skript for example
 
 CharacterBase:
@@ -81,7 +82,7 @@ EnemyControllerBase:
 float EnemyAttackDuration = 0.6f;
 float EnemyIsAttackedTime = 0.6f;
 float EnemyAttackPauseTime = 1.5f;
-
+```
 	
 ## Parent Classes
 
