@@ -15,6 +15,8 @@ In Blueprint Constructor-Skript. So you are able to only use my Functions and Pr
 
 ## Download the Plugin
 
+https://www.unrealengine.com/marketplace/en-US/product/5653ae7bd50e4c52a2ed962ab01e1717
+
 If you have downloaded the plugin it can be found in your Unreal Engine folder:
 C:\Program Files\Epic Games\UE_5.0\Engine\Plugins\TopDownRTSTemplate (for example)
 If you can find this folder in your enginge plugins folder the download was successful.
