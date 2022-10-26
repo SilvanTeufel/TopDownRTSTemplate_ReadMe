@@ -51,10 +51,10 @@ and create the keybindings by yourself
 ## Test Example Map
 
 Open Unreal Editor. Open folder (In Unreal Editor folder tab):
-All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Level\
+All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Level\levelOne
 
 Open Unreal Editor. Open folder (In Unreal Editor folder tab):
-All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Level\
+All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplateLevel\levelTwo
 
 ## Example Blueprints
 
