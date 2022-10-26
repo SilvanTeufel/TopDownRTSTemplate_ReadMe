@@ -1,8 +1,7 @@
 # TopDownRTSTemplate - Readme - 2022
+Copyright 2022 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 
 NEXT UPDATE COMING SOON: Bugfixes + LevelTwo Map with LevelGenerator will be implemented soon!
-
-Copyright 2022 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 
 For Questions you can write to info@teufel-engineering.com
 If you find any Issues or Bugs i appreciate your Mail!
