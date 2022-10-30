@@ -2,7 +2,22 @@ Copyright 2022 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 
 # TopDownRTSTemplate - Readme - 2022
 
-NEXT UPDATE COMING SOON: Bugfixes + LevelTwo Map with LevelGenerator will be implemented soon!
+V 1.0.2 ( in Review )
+
+https://www.youtube.com/watch?v=JDpu0PcHnvk
+
+( Mousebot - Added new Character )
+
+V 1.0.1
+
+https://www.youtube.com/watch?v=ZLsuH2VCtrc
+
+(Here you will also find the Random Level Generator added in this Version)
+
+V 1.0.0
+
+https://www.youtube.com/watch?v=hzCgdao3knM
+
 
 For Questions you can write to info@teufel-engineering.com
 If you find any Issues or Bugs i appreciate your Mail!
