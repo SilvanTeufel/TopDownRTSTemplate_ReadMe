@@ -160,8 +160,8 @@ GameMode/HUD/Actor Setup
 
 Widget Setup
 1. Widgets have to be choosen inside the Blueprints of a Character
-2. Example Widgets are at (All\Engine\Plugins\SwarmSimulator\Content\SwarmSimulator\Blueprints\Widgets)
-3. Example Character with choosen Widgets can be found at (All\Engine\Plugins\SwarmSimulator\Content\SwarmSimulator\Blueprints\Character)
+2. Example Widgets are at (All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Blueprints\Widgets)
+3. Example Character with choosen Widgets can be found at (All\Engine\Plugins\TopDownRTSTemplate\Content\TopDownRTSTemplate\Blueprints\Character)
 4. Widget hast to been set Space "Screen" and Draw at Desired Size to true. (In the Widget and in the Character BP)
 5. Widget Class has to choose a Blueprint (in the Character BP). Or just use the Parent Class like it is.
 
