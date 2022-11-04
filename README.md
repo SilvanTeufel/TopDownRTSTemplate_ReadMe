@@ -477,6 +477,8 @@ TArray <ACharacterBase*> FoundCharacters;
 
 TArray <AEnemyBase*> FoundEnemys;
 
+bool CharacterIsUnSelectable = false;		- Set it to true in Constructur Skript to make the Characters unselectable via leftclick on terrain. I thought it was 								not good for gameplay.
+
 bool DisableTick = false;
 ```
 ---
