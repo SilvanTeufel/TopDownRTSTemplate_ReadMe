@@ -62,6 +62,7 @@ If the keybindings are not working you can check the pictures in:
 C:\Program Files\Epic Games\UE_5.0\Engine\Plugins\TopDownRTSTemplate\Document\Inputs
 and create the keybindings by yourself
 
+If Import is not working, you can add the Action Mapping by yourself:
 
 If Alt for Mousebot Shortcut is not Working (ProjectSettings -> Input -> Action Mappings):
 
